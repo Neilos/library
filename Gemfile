@@ -1,7 +1,7 @@
 source 'https://www.rubygems.org'
 
 gem 'sinatra'
-
+gem 'amazon-ecs'
 
 group :test, :development do
   gem 'capybara'
