@@ -4,3 +4,6 @@ This repository contains the coding output for a 1 week coding challenge set at 
   * Tom Wisniewski
   * Dario D'Aprile
   * Neil Atkinson
+
+The challenge is to create a simple library web app for users to keep track of their book collections.
+
