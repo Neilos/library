@@ -1,6 +1,6 @@
 <h1>Hello World</h1>
-<% res =  Amazon::Ecs.item_search('ruby', :search_index => 'All')  %>
-  <% res.items.each do |item| %>
+
+  <% @res.items.each do |item| %>
     <p><%= item.get('ASIN') %></p>
   <p><%= item.get('ItemAttributes/Title') %></p>
   <% end %>
