@@ -22,6 +22,5 @@ class Main < Sinatra::Base
     erb :results
   end
 
-
 end
 
