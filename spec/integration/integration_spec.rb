@@ -3,10 +3,10 @@ ENV['RACK_ENV'] = 'test'
 require 'rspec'
 require 'capybara/rspec'
 
-require_relative '../../lib/controllers/main'
+require_relative '../../lib/controllers/main_controller'
 
 
-Capybara.app = Main
+Capybara.app = MainController
 
 describe 'display_results', :type => :feature do
 
@@ -26,3 +26,4 @@ describe 'display_results', :type => :feature do
   end
 
 end
+
