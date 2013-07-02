@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'amazon/ecs'
+require_relative '../models/dmconfig'
 
 class Main < Sinatra::Base
 
