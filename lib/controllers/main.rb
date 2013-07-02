@@ -15,11 +15,6 @@ class Main < Sinatra::Base
   end
 
   get '/' do
-    res = Amazon::Ecs.item_search('ruby', :country => 'uk')
-    res.items.each do |item|
-      # retrieve string value using XML path
-      puts item.get('ItemAttributes/Title')
-    end
     erb :home
   end
 
