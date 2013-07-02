@@ -19,12 +19,12 @@ class MainController < Sinatra::Base
   end  
 
   get '/display_results' do
-    @count = params[:count] || "10"
+    @count = (params[:count] || "10").to_i
+    @page = (params[:page] || "1").to_i
     @search = params[:search]
-    @books = GoogleBooks.search(params[:search], {:count => @count.to_i})
+    @books = GoogleBooks.search(params[:search], {:count => @count, :page => @page})
     erb :results
   end
-
 
 end
 
