@@ -2,10 +2,11 @@ source 'https://www.rubygems.org'
 
 gem 'sinatra'
 gem 'amazon-ecs'
+gem 'googlebooks'
 
 group :test, :development do
   gem 'capybara'
-  gem 'rspec'  
+  gem 'rspec'
   gem 'selenium-webdriver'
   gem 'shotgun'
   gem 'rack-test'

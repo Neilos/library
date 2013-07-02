@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'amazon/ecs'
+require 'googlebooks'
 
 class Main < Sinatra::Base
 
@@ -7,18 +7,15 @@ class Main < Sinatra::Base
     set :root, Proc.new { File.join(File.dirname(__FILE__), "../../") }
   end
 
-  Amazon::Ecs.configure do |options|
-    options[:response_group] = 'Large'
-    options[:associate_tag] = ENV['ASSOCIATE_TAG']
-    options[:AWS_access_key_id] = ENV['AWS_ACCESS_KEY_ID']
-    options[:AWS_secret_key] = ENV['AWS_SECRET_KEY']
-  end
+
 
   get '/' do
     erb :home
   end
 
   get '/display_results' do
+    @count = params[:count] || "10"
+    @books = GoogleBooks.search(params[:search], {:count => @count.to_i})
     erb :results
   end
 

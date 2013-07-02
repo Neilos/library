@@ -1,6 +1,6 @@
 <h1>Search Results</h1>
-  <% res =  Amazon::Ecs.item_search('ruby', :search_index => 'All')  %>
-  <% res.items.each do |item| %>
-    <p><%= item.get('ASIN') %></p>
-  <p><%= item.get('ItemAttributes/Title') %></p>
+  <% @books.each do |book| %>
+  <p><%= book.title %> by <%= book.authors %></p>
+  <p>ISBN: <%= book.isbn %></p>
+  <button id="add" type="submit">Add to favourites</button>
   <% end %>
