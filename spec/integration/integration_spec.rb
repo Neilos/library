@@ -20,7 +20,7 @@ describe 'display_results', :type => :feature do
     page.should have_content("ISBN", :count => 7)
   end
 
-    it 'should render a page with a defined number of results' do
+  it 'should render a page with a defined number of results' do
     visit "/display_results?search=ruby"
     page.should have_content("ISBN", :count => 10)
   end

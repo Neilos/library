@@ -15,6 +15,7 @@ class Main < Sinatra::Base
 
   get '/display_results' do
     @count = params[:count] || "10"
+    @search = params[:search]
     @books = GoogleBooks.search(params[:search], {:count => @count.to_i})
     erb :results
   end

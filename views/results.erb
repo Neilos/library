@@ -1,6 +1,10 @@
-<h1>Search Results</h1>
+<h1>Search Results for: <%= @search %> </h1>
   <% @books.each do |book| %>
   <p><%= book.title %> by <%= book.authors %></p>
-  <p>ISBN: <%= book.isbn %></p>
-  <button id="add" type="submit">Add to favourites</button>
+  <img src=<%=book.image_link %> />
+  <p>ISBN: <%= book.isbn %>
+    <button id="add" type="submit">Add to favourites</button>
+  </p>
+  <hr />
   <% end %>
+  <button id="next" type"submit">Next</button>
