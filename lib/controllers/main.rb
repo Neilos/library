@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'googlebooks'
+require_relative '../models/dmconfig'
 
 class Main < Sinatra::Base
 

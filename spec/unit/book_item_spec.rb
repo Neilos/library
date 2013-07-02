@@ -1,7 +1,7 @@
 require 'rspec'
-require_relative '../../lib/models/book_review'
+require_relative '../../lib/models/book_item'
 
-describe "User" do
+describe BookItem do
   it "should..." do    
     true.should be(true)
   end

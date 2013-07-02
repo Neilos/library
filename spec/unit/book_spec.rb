@@ -1,7 +1,7 @@
 require 'rspec'
 require_relative '../../lib/models/book'
 
-describe "User" do
+describe Book do
   it "should..." do
 
   end
