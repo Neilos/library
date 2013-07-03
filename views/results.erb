@@ -2,9 +2,8 @@
   <% @books.each do |book| %>
   <p><%= book.title %> by <%= book.authors %></p>
   <img src=<%=book.image_link %> />
-  <p>ISBN: <%= book.isbn %>
-    <button id="add" type="submit">Add to favourites</button>
-  </p>
+  <p>ISBN: <%= book.isbn %></p>
+  <button id="add" type="submit">Add to favourites</button>
   <hr />
   <% end %>
-  <button> <a href="/display_results?search=<%=@search%>&count=<%=@count%>&page=<%=@page+1%>" >Next </a> </button>
+  <button> <a href="/display_results?search=<%=@search.gsub(/ /,"%20")%>&count=<%=@count%>&page=<%=@page+1%>" >Next </a> </button>

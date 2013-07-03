@@ -15,7 +15,7 @@ end
 describe MainController do
 
 
-  describe "GET/display_results" do
+  describe "GET /" do
     it "renders the results page" do
       get '/'
       last_response.ok?.should be_true
@@ -33,7 +33,7 @@ describe MainController do
 
   describe "GET/display_results" do
     it "renders the results page" do
-      get '/display_results'
+      get '/display_results?search=count'
       last_response.ok?.should be_true
       expect(last_response.body).to include "Search Results"
     end
