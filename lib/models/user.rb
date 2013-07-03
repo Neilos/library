@@ -1,6 +1,6 @@
 require 'data_mapper'
 require 'bcrypt'
-require 'dm-rails'
+require 'dm-rails/mass_assignment_security'
 
 class User
   include BCrypt
