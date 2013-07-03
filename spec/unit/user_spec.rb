@@ -7,8 +7,9 @@ describe User do
     @user = User.new
     set_password = "password"
     @user.password = set_password
-    retrieved_password = @user.password
-    expect(set_password).to_not equal retrieved_password
+    @user.save!
+    @user.reload
+    expect(@user.password).to eq set_password
   end
 
 end 

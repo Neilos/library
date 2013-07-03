@@ -1,15 +1,17 @@
 source 'https://www.rubygems.org'
-ruby '1.9'
 
 gem 'sinatra'
 gem 'googlebooks'
 gem 'pg'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'bcrypt'
+gem 'dm-rails'
+gem 'bcrypt-ruby'
+gem 'database_cleaner'
 
 group :test, :development do
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'rspec'
   gem 'shotgun'
   gem 'rack-test'

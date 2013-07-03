@@ -8,10 +8,23 @@ class MainController < Sinatra::Base
     set :root, Proc.new { File.join(File.dirname(__FILE__), "../../") }
   end
 
+  get '/signup' do 
+    @user = User.new
+    erb :signup
+  end
 
-
-  get '/' do
-    erb :home
+  post '/signup' do
+    @user = User.new
+    @user.first_name = params[:first_name]
+    @user.last_name = params[:last_name]
+    @user.email = params[:email]
+    @user.password = params[:password]
+    @user.password_confirmation = params[:password_confirmation]
+    if @user.save
+      redirect '/'
+    else
+      erb :signup
+    end
   end
 
   get '/search_for_book' do 
@@ -24,6 +37,10 @@ class MainController < Sinatra::Base
     @search = params[:search]
     @books = GoogleBooks.search(params[:search], {:count => @count, :page => @page})
     erb :results
+  end
+
+  get '/' do
+    erb :home
   end
 
 end
