@@ -1,2 +1,2 @@
-require './lib/controllers/main.rb'
-run Main
+require './lib/controllers/main_controller.rb'
+run MainController
