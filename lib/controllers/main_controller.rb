@@ -43,7 +43,7 @@ class MainController < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/'
     else
-      @user.errors.add(:email, "email or password invalid")
+      # @user.errors.add(:email, "email or password invalid")
       erb :login
     end
   end
