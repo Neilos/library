@@ -24,8 +24,8 @@ class MainController < Sinatra::Base
     @new_user.password = params[:password]
     @new_user.password_confirmation = params[:password_confirmation]
     if @new_user.save
-      session[:user_id] = @user.id
-      redirect "/user/#{@user.id}"
+      session[:user_id] = @new_user.id
+      redirect "/user/#{@new_user.id}"
     else
       erb :signup
     end
