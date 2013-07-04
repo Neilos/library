@@ -55,7 +55,7 @@ describe 'signing up a user', :type => :feature do
     fill_in 'Password Confirmation', :with => 'password'
     click_button 'Sign Up'
     expect(User.count).to be == 1
-    page.should have_content('Bookster Home Page')
+    page.should have_content('Tom')
   end
 
 end
@@ -82,6 +82,16 @@ describe 'logging in a user', :type => :feature do
   end 
 
 end
+
+# describe 'logging out' do
+#   it 'logs the user out and renders the home page' do
+#     sign_in_user("jim", "jones", "jim@gmail.com", "password", "password")
+#     visit '/logout'
+#     click_button 'Log Out'
+#     page.should have_content("Logged Out")
+#   end
+# end
+
 # describe 'display_results', :type => :feature do
 
 #   it 'should render a page with any results' do

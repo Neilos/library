@@ -25,7 +25,7 @@ class MainController < Sinatra::Base
     @user.password_confirmation = params[:password_confirmation]
     if @user.save
       session[:user_id] = @user.id
-      redirect '/'
+      redirect "/user/#{@user.id}"
     else
       erb :signup
     end
@@ -40,11 +40,16 @@ class MainController < Sinatra::Base
     @user = User.first(:email => params[:email])
     if @user &&  @user.password == params[:password]
       session[:user_id] = @user.id
-      redirect '/'
+      redirect "/user/#{@user.id}"
     else
       # @user.errors.add(:email, "email or password invalid")
       erb :login
     end
+  end
+
+  get '/user/:id' do |id|
+    @user = User.get(id)
+    erb :user_profile
   end
 
   get '/search_for_book' do 
@@ -60,7 +65,6 @@ class MainController < Sinatra::Base
   end
 
   get '/' do
-    @user = User.first(:id => session[:user_id])
     erb :home
   end
 
