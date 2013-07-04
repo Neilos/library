@@ -9,11 +9,13 @@ require_relative './book_item'
 
 DataMapper::Logger.new($stdout, :debug)
 
-connection_string = "postgres://postgres:po01stgre32sS@localhost/library_development"
+
 if ENV['RACK_ENV'] == 'production'
   connection_string = ENV['HEROKU_POSTGRESQL_COBALT_URL']
 elsif ENV['RACK_ENV'] == 'test'
-  connection_string = "postgres://postgres:po01stgre32sS@localhost/library_test"
+  connection_string = "postgres://neilatkinson@localhost/library_test"
+elsif ENV['RACK_ENV'] == 'development'
+  connection_string = "postgres://neilatkinson@localhost/library_development"
 end
 
 DataMapper.setup(:default, connection_string)

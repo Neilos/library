@@ -1,3 +1,6 @@
+
+require 'data_mapper'
+
 class Collection
 
   include DataMapper::Resource
