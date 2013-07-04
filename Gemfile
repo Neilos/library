@@ -12,5 +12,6 @@ group :test, :development do
   gem 'shotgun'
   gem 'rack-test'
   gem 'mocha', :require => false
+  gem 'debugger'
 end
 
