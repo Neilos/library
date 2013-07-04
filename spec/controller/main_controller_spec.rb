@@ -1,7 +1,7 @@
+ENV['RACK_ENV'] = 'test'
+
 require 'rspec'
 require 'rack/test'
-
-ENV['RACK_ENV'] = 'test'
 
 require_relative '../../lib/controllers/main_controller'
 
