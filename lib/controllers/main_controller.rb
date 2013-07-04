@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'googlebooks'
+require 'debugger'
 require_relative '../models/dmconfig'
 
 class MainController < Sinatra::Base
@@ -37,7 +38,7 @@ class MainController < Sinatra::Base
   end
 
   post '/login' do
-    @user = User.find(:email => params[:email]).first
+    @user = User.first(:email => params[:email])
     if @user &&  @user.password == params[:password]
       session[:user_id] = @user.id
       redirect '/'
@@ -60,7 +61,7 @@ class MainController < Sinatra::Base
   end
 
   get '/' do
-    @user = User.find(:id => session[:user_id]).first
+    @user = User.first(:id => session[:user_id])
     erb :home
   end
 
