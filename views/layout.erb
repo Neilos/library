@@ -6,6 +6,12 @@
     <script src="javascripts/library.js" type="text/javascript"></script>
   </head>
   <body>
+    <nav>
+      <ul>
+        <%= "<li><a href='/login'>Log In</a></li>" unless @user %>
+        <%= "<li><a href='/logout'>Log Out</a></li>" if @user %>
+      </ul>
+    </nav>
     <div>
       <%= yield %>
     </div>

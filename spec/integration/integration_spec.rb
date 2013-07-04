@@ -63,7 +63,7 @@ end
 describe 'logging in a user', :type => :feature do
 
   it 'should log the user in if provided with valid details' do
-    sign_in_user("jim", "jones", "jim@gmail.com", "password", "password")
+    sign_up_user("jim", "jones", "jim@gmail.com", "password", "password")
     visit '/login'
     fill_in 'Email', :with => 'jim@gmail.com'
     fill_in 'Password', :with => 'password'
@@ -72,7 +72,7 @@ describe 'logging in a user', :type => :feature do
   end 
 
   it 'should render error messages if invalid details are entered' do
-    sign_in_user("jim", "jones", "jim@gmail.com", "password", "password")
+    sign_up_user("jim", "jones", "jim@gmail.com", "password", "password")
     visit '/login'
     fill_in 'Email', :with => 'jimbojones@gmail.com'
     fill_in 'Password', :with => 'notjimspassword'
@@ -83,14 +83,18 @@ describe 'logging in a user', :type => :feature do
 
 end
 
-# describe 'logging out' do
-#   it 'logs the user out and renders the home page' do
-#     sign_in_user("jim", "jones", "jim@gmail.com", "password", "password")
-#     visit '/logout'
-#     click_button 'Log Out'
-#     page.should have_content("Logged Out")
-#   end
-# end
+describe 'logging out', :type => :feature do
+  it 'logs the user out and renders the home page' do
+    sign_up_user("jim", "jones", "jim@gmail.com", "password", "password")
+    visit '/login'
+    fill_in 'Email', :with => 'jim@gmail.com'
+    fill_in 'Password', :with => 'password'
+    click_button 'Log In'
+    page.should have_content('jim')
+    click_link 'Log Out'
+    page.should have_content("Bookster Home Page")
+  end
+end
 
 # describe 'display_results', :type => :feature do
 

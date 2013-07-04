@@ -65,7 +65,12 @@ class MainController < Sinatra::Base
     erb :results
   end
 
-  get '/' do
+  get '/logout' do
+    session[:user_id] = nil
+    redirect to('/')
+  end
+
+  get '/?' do
     erb :home
   end
 

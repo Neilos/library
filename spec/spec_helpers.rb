@@ -2,7 +2,7 @@ require_relative '../lib/models/dmconfig'
 
 module SpecHelpers
 
-  def sign_in_user(first_name, last_name, email, password, password_confirmation)
+  def sign_up_user(first_name, last_name, email, password, password_confirmation)
       @user = User.new
       @user.first_name = first_name
       @user.last_name = last_name
