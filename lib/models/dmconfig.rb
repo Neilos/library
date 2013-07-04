@@ -9,6 +9,7 @@ require_relative './book_item'
 
 DataMapper::Logger.new($stdout, :debug)
 
+
 if ENV['RACK_ENV'] == 'production'
   connection_string = ENV['HEROKU_POSTGRESQL_COBALT_URL']
 elsif ENV['RACK_ENV'] == 'test'
