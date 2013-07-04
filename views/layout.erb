@@ -8,8 +8,11 @@
   <body>
     <nav>
       <ul>
+        <li><a href='/'>Home</a></li>
         <%= "<li><a href='/login'>Log In</a></li>" unless @user %>
         <%= "<li><a href='/logout'>Log Out</a></li>" if @user %>
+        <%= "<li><a href='/user/#{@user.id}''>Profile</a></li>" if @user %>
+        <%= "<li><a href='/signup'>Sign Up</a></li>" unless @user %>
       </ul>
     </nav>
     <div>
