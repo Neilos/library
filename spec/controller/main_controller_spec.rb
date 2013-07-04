@@ -1,8 +1,9 @@
 require 'rspec'
 require 'rack/test'
-require_relative '../../lib/controllers/main_controller'
 
 ENV['RACK_ENV'] = 'test'
+
+require_relative '../../lib/controllers/main_controller'
 
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
