@@ -1,6 +1,4 @@
-<h1>Hello World</h1>
+<div><%= "Hello #{@user.first_name}" if @user %></div> 
 
-  <% @res.items.each do |item| %>
-    <p><%= item.get('ASIN') %></p>
-  <p><%= item.get('ItemAttributes/Title') %></p>
-  <% end %>
+<h1>Bookster Home Page</h1>
+
