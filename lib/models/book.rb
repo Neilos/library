@@ -3,7 +3,7 @@ require 'data_mapper'
 
 class Book
   include DataMapper::Resource
-  belongs_to :collection
+  has n, :book_copies
 
   property :id,     Serial
   property :title, String
@@ -16,7 +16,6 @@ class Book
   validates_with_method :no_swear_words
 
   def no_swear_words
-    debugger
     result = title =~ /fuck/i
     result.nil?
   end

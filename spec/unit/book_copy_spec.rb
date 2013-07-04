@@ -1,8 +1,9 @@
 require 'rspec'
-require_relative '../../lib/models/book_item'
+require_relative '../../lib/models/book_copy'
 
-describe BookItem do
+describe BookCopy do
   it "should..." do    
     true.should be(true)
   end
 end
+

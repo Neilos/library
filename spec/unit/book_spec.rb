@@ -8,7 +8,6 @@ describe Book do
   isbn = "12121212"
   categories = "Lifestyle"
   text_snippet = "Nobody cares..."
-  collection_id = 1
 
   it "should not accept the word fuck in  title" do
     book1 = Book.new(
@@ -16,8 +15,7 @@ describe Book do
       :author  => author,
       :isbn  => isbn,
       :categories  => categories,
-      :text_snippet  => text_snippet,
-      :collection_id => collection_id
+      :text_snippet  => text_snippet
       )
     book1.valid?.should be false
   end
@@ -29,8 +27,7 @@ describe Book do
       :author  => author,
       :isbn  => isbn,
       :categories  => categories,
-      :text_snippet  => text_snippet,
-      :collection_id => collection_id
+      :text_snippet  => text_snippet
     )
     book2.valid?.should be true
   end
