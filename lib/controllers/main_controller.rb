@@ -12,18 +12,18 @@ class MainController < Sinatra::Base
   end
 
   get '/signup' do 
-    @user = User.new
+    @new_user = User.new
     erb :signup
   end
 
   post '/signup' do
-    @user = User.new
-    @user.first_name = params[:first_name]
-    @user.last_name = params[:last_name]
-    @user.email = params[:email]
-    @user.password = params[:password]
-    @user.password_confirmation = params[:password_confirmation]
-    if @user.save
+    @new_user = User.new
+    @new_user.first_name = params[:first_name]
+    @new_user.last_name = params[:last_name]
+    @new_user.email = params[:email]
+    @new_user.password = params[:password]
+    @new_user.password_confirmation = params[:password_confirmation]
+    if @new_user.save
       session[:user_id] = @user.id
       redirect "/user/#{@user.id}"
     else
@@ -42,7 +42,7 @@ class MainController < Sinatra::Base
       session[:user_id] = @user.id
       redirect "/user/#{@user.id}"
     else
-      # @user.errors.add(:email, "email or password invalid")
+      @user = nil
       erb :login
     end
   end
@@ -70,9 +70,7 @@ class MainController < Sinatra::Base
   end
 
   get '/' do
-    puts "###HERE####"
-    puts User.all
-    puts "###HERE####"
+    @user = User.get(session[:user_id])
     erb :home
   end
 
