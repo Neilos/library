@@ -20,6 +20,6 @@ end
 
 DataMapper.setup(:default, connection_string)
 DataMapper.finalize
-DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
 
 # this is alternative to run from command line.

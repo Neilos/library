@@ -21,7 +21,6 @@ describe Book do
   end
 
   it "should accept the title without fuck in it" do
-     
     book2 =Book.new(
       :title  => "good1",
       :author  => author,
@@ -30,6 +29,12 @@ describe Book do
       :text_snippet  => text_snippet
     )
     book2.valid?.should be true
+  end
+
+  it "should check if a book exists" do
+    book2 =Book.create( :title  => "good1", :author  => author, :isbn  => "12345", :categories  => categories, :text_snippet  => text_snippet )
+    Book.exist?("12345").should be true
+    Book.exist?("55555").should be false
   end
 
 end
