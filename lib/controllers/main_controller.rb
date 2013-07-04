@@ -64,6 +64,11 @@ class MainController < Sinatra::Base
     erb :results
   end
 
+  # post 'display_results' do
+  #   if book.exist?
+  #   @book = (:title => params[:title])
+  # end
+
   get '/' do
     erb :home
   end

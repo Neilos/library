@@ -15,9 +15,14 @@ class Book
   # validates_with_method :title, :method => :no_swear_words
   validates_with_method :no_swear_words
 
+
   def no_swear_words
     result = title =~ /fuck/i
     result.nil?
+  end
+
+  def self.exist?(isbn)
+    Book.all(:isbn => isbn).count > 0
   end
 
 end
