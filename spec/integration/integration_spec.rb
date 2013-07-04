@@ -4,13 +4,17 @@ require 'rspec'
 require 'capybara/rspec'
 require 'selenium-webdriver'
 require 'database_cleaner'
-
+require_relative '../spec_helpers'
 require_relative '../../lib/controllers/main_controller'
 
 # configure rspec to clean the database after each test using database_cleaner
 RSpec.configure do |config|
+
+  config.include SpecHelpers
+
   config.before(:each) do
     DatabaseCleaner.start
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.after(:each) do
@@ -54,7 +58,28 @@ describe 'signing up a user', :type => :feature do
     page.should have_content('Bookster Home Page')
   end
 
+end
 
+describe 'logging in a user', :type => :feature do
+
+  it 'should log the user in if provided with valid details' do
+    sign_in_user("jim", "jones", "jim@gmail.com", "password", "password")
+    visit '/login'
+    fill_in 'Email', :with => 'jim@gmail.com'
+    fill_in 'Password', :with => 'password'
+    click_button 'Log In'
+    page.should have_content('jim')
+  end 
+
+  it 'should render error messages if invalid details are entered' do
+    sign_in_user("jim", "jones", "jim@gmail.com", "password", "password")
+    visit '/login'
+    fill_in 'Email', :with => 'jimbojones@gmail.com'
+    fill_in 'Password', :with => 'notjimspassword'
+    click_button 'Log In'
+    page.should have_content("Log In")
+    page.should have_content("email or password invalid")
+  end 
 
 end
 # describe 'display_results', :type => :feature do
