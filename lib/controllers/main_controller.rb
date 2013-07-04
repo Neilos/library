@@ -69,7 +69,10 @@ class MainController < Sinatra::Base
     redirect to('/')
   end
 
-  get '/?' do
+  get '/' do
+    puts "###HERE####"
+    puts User.all
+    puts "###HERE####"
     erb :home
   end
 
