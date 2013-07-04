@@ -59,6 +59,11 @@ class MainController < Sinatra::Base
     erb :results
   end
 
+  # post 'display_results' do
+  #   if book.exist?
+  #   @book = (:title => params[:title])
+  # end
+
   get '/' do
     @user = User.first(:id => session[:user_id])
     erb :home
