@@ -3,7 +3,7 @@
 <% if @user.errors %>
 <ul>
 <% @user.errors.each do |e| %>
-  <li><%= e %></li>
+  <li><%= e.first %></li>
 <% end %>
 </ul>
 <% end %>
@@ -11,19 +11,19 @@
 <form action='/signup' method='post'>
 
   <label for='1'>First Name</label>
-  <input id='1' type='text' name='first_name'/>
+  <input id='1' type='text' name='first_name' value='<%= @user ? @user.first_name : "" %>'/>
 
   <label for='2'>Last Name</label>
-  <input id='2' type='text' name='last_name'/>
+  <input id='2' type='text' name='last_name' value='<%= @user ? @user.last_name : "" %>'/>
 
   <label for='3'>Email</label>
-  <input id='3' type='text' name='email'/>
+  <input id='3' type='text' name='email' value='<%= @user ? @user.email : "" %>'/>
 
   <label for='4'>Password</label>
-  <input id='4' type='text' name='password'/>
+  <input id='4' type='password' name='password'/>
 
   <label for='5'>Password Confirmation</label>
-  <input id='5' type='text' name='password_confirmation'/>
+  <input id='5' type='password' name='password_confirmation'/>
 
   <input type="submit" value="Sign Up"/>
 
