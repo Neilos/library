@@ -1,8 +1,11 @@
 require 'sinatra/base'
 require 'googlebooks'
+require 'sinatra/flash'
 require_relative '../models/dmconfig'
 
 class MainController < Sinatra::Base
+
+  register Sinatra::Flash
 
   configure do
     use Rack::Session::Cookie, :key => 'rack.session',
@@ -42,7 +45,8 @@ class MainController < Sinatra::Base
       session[:user_id] = @user.id
       redirect "/user/#{@user.id}"
     else
-      @user = nil
+      # @user = nil
+      flash[:info] = "Password and/or email incorrect"
       erb :login
     end
   end

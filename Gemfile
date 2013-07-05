@@ -8,7 +8,7 @@ gem 'dm-postgres-adapter'
 gem 'dm-rails'
 gem 'bcrypt-ruby'
 gem 'database_cleaner'
-
+gem 'sinatra-flash'
 
 group :test, :development do
   gem 'capybara'
