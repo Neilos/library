@@ -14,6 +14,10 @@ class MainController < Sinatra::Base
     set :root, Proc.new { File.join(File.dirname(__FILE__), "../../") }
   end
 
+  before do
+    @user = User.get(session[:user_id])
+  end  
+
   get '/signup' do 
     @new_user = User.new
     erb :signup
@@ -47,12 +51,11 @@ class MainController < Sinatra::Base
     else
       # @user = nil
       flash[:info] = "Password and/or email incorrect"
-      erb :login
+      redirect '/login'
     end
   end
 
   get '/user/:id' do |id|
-    @user = User.get(id)
     erb :user_profile
   end
 
@@ -74,7 +77,6 @@ class MainController < Sinatra::Base
   end
 
   get '/' do
-    @user = User.get(session[:user_id])
     erb :home
   end
 
